@@ -15,7 +15,7 @@ export default function Register() {
   } = useForm();
 
   const onSubmit = (data) => {
-    axios.post('http://localhost:3000/api/auth/register',{
+    axios.post('https://mygpt-38lz.onrender.com//api/auth/register',{
       email:data.email,
 
       fullName:{
