@@ -1,4 +1,5 @@
 const chatModel = require('../models/chat.model')
+const messageModel = require('../models/message.model')
 
 
 async function createChat(req,res) {
@@ -20,7 +21,7 @@ async function createChat(req,res) {
 async function getChats(req,res) {
     const user = req.user;
 
-    const chat = await chatModel.find({user:user._id})
+    const chat = await chatModel.find({user:user._id}).sort({ updatedAt: -1 })
     res.status(200).json({
         message:"chats retrived successfully",
         chats: chat.map(chat=>({
@@ -33,7 +34,18 @@ async function getChats(req,res) {
     
 }
 
+async function getMessages(req,res) {
+    const chatId = req.params.id
+    const messages = await messageModel.find({chat:chatId})
+    res.status(200).json({
+        message:"messages recieved successfully",
+        messages:messages
+    })
+    
+}
+
 module.exports = {
     createChat,
-    getChats
+    getChats,
+    getMessages
 }
