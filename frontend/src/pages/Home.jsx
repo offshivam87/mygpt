@@ -17,14 +17,14 @@ export default function Home() {
   // fetch chats from server on mount
   useEffect(() => {
     axios
-      .get("https://mygpt-p97g.vercel.app/api/chat", { withCredentials: true })
+      .get("https://mygpt-nine-flax.vercel.app/api/chat", { withCredentials: true })
       .then((res) => {
         setChats(res.data.chats || []);
         console.log(res);
       })
 
 
-    const tempSocket = io("https://mygpt-p97g.vercel.app", {
+    const tempSocket = io("https://mygpt-nine-flax.vercel.app", {
       withCredentials: true
     })
 
@@ -52,7 +52,7 @@ export default function Home() {
 
   const getMesages = async (chatId) => {
     const response = await axios.get(
-      `https://mygpt-p97g.vercel.app/api/chat/${chatId}`,
+      `https://mygpt-nine-flax.vercel.app/api/chat/${chatId}`,
       { withCredentials: true }
     )
     console.log("fetched messages", response.data.messages);
@@ -88,7 +88,7 @@ export default function Home() {
     const title = window.prompt("Enter the title of new chat") || "Untitled";
     try {
       const response = await axios.post(
-        "https://mygpt-p97g.vercel.app/api/chat",
+        "https://mygpt-nine-flax.vercel.app/api/chat",
         { title },
         { withCredentials: true }
       );
