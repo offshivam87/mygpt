@@ -15,7 +15,7 @@ export default function Register() {
   } = useForm();
 
   const onSubmit = (data) => {
-    axios.post('https://mygpt-38lz.onrender.com/api/auth/register',{
+    axios.post('https://mygpt-p97g.vercel.app/api/auth/register',{
       email:data.email,
 
       fullName:{

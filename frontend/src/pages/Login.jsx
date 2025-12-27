@@ -20,7 +20,7 @@ export default function Login() {
   // Submit Function
   const onSubmit = (data) => {
     alert("Submit clicked");
-    axios.post('https://mygpt-38lz.onrender.com/api/auth/login', { 
+    axios.post('https://mygpt-p97g.vercel.app/api/auth/login', { 
       email:data.email,
       password:data.password
     } , {
