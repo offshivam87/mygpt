@@ -13,7 +13,8 @@ const app = express()
 app.use(cors({
     origin: [
     "http://localhost:5173",
-    "https://mygpt-38lz.onrender.com"
+    "https://mygpt-38lz.onrender.com",
+    "https://mygpt-p97g.vercel.app/"
   ], 
 
     credentials:true
